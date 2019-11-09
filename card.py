@@ -1,44 +1,41 @@
 import random
 
-kc = ("宫本武藏","李白","武则天","诸葛亮","嬴政")
-bb = []
+card_pool = ("嬴政","诸葛亮","武则天","李白","宫本武藏")
+package = []
 while 1:
-    zjm = int(input('''
+    choose = int(input("""
     充值能让你变得更强！
-    请选择指令:
+    请选择指令：
     1.抽卡
     2.查看背包
     3.整理背包
     4.离开
-    '''))
-    if zjm == 1:
-        ck = int(input("输入抽卡次数:"))
-        for i in range(0,ck):
+    """))
+    if choose == 1:
+        number = int(input("输入抽卡次数: "))
+        for i in range(0,number):
             n = random.randint(0,4)
-            print("你抽到了:{}".format(kc[n]))
-            bb.append(kc[n])
+            print("你抽到了：{}".format(card_pool[n]))
+            package.append(card_pool[n])
+        print("卡已存入背包")
+        print("____________")
 
-        print("卡已存到背包")
-        print("______________")
-
-    if zjm == 2:
-        if len(bb) == 0:
-            print("背包暂无英雄，快去抽卡吧！")
-            print("________________________")
+    if choose == 2:
+        if len(package) == 0:
+            print("背包没有英雄，快去抽卡吧！")
+            print("________________")
         else:
-            for i in bb:
+            for i in package:
                 print(i)
-            print("__________")
+                print("_____________")
 
-    if zjm == 3:
-        if len(bb) == 0:
-            print("背包暂无英雄，快去抽卡吧！")
-            print("___________")
+    if choose == 3:
+        if len(package) == 0:
+            print("背包没有英雄，快去抽卡吧!")
+            print("__________________")
         else:
-            bb.sort()
-            for i in bb:
+            package.sort()
+            for i in package:
                 print(i)
-            print("__________")
-
-    if zjm == 4:
+    if choose == 4:
         break
